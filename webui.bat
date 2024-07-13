@@ -31,7 +31,7 @@ goto :show_stdout_stderr
 if ["%VENV_DIR%"] == ["-"] goto :skip_venv
 if ["%SKIP_VENV%"] == ["1"] goto :skip_venv
 
-dir "%VENV_DIR%\Scripts\Python.exe" >tmp/stdout.txt 2>tmp/stderr.txt
+dir "C:\Users\DJ0623\AppData\Local\Programs\Python\Python310" >tmp/stdout.txt 2>tmp/stderr.txt
 if %ERRORLEVEL% == 0 goto :activate_venv
 
 for /f "delims=" %%i in ('CALL %PYTHON% -c "import sys; print(sys.executable)"') do set PYTHON_FULLNAME="%%i"
@@ -42,7 +42,7 @@ echo Unable to create venv in directory "%VENV_DIR%"
 goto :show_stdout_stderr
 
 :activate_venv
-set PYTHON="%VENV_DIR%\Scripts\Python.exe"
+set PYTHON="C:\Users\DJ0623\AppData\Local\Programs\Python\Python310"
 echo venv %PYTHON%
 
 :skip_venv
